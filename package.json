@@ -1,0 +1,18 @@
+{
+	"name": "gps-util",
+	"description": "GPS related functionalities",
+	"keywords": ["gps", "parser", "distance", "calculator"],
+	"author": "Nguyen Van Nhu",
+	"homepage" : "https://github.com/vanng822/gps-util",
+	"contributors": [],
+	"dependencies": ["xml2js"],
+	"devDependencies": ["vows"],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/vanng822/gps-util.git"
+	},
+	"scripts" : {
+		"test" : "vows --spec tests/*.js"
+	},
+	"version": "0.0.1"
+}

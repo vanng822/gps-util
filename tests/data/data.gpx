@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Garmin Connect"
+    xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd"
+    xmlns="http://www.topografix.com/GPX/1/1"
+    xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+    xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <link href="connect.garmin.com">
+            <text>Garmin Connect</text>
+        </link>
+        <time>2013-03-02T15:40:32.000Z</time>
+    </metadata>
+    <trk>
+        <name>Untitled</name>
+        <trkseg>
+            <trkpt lon="17.661922238767147" lat="59.19305333867669">
+                <ele>69.4000015258789</ele>
+                <time>2013-03-02T15:40:31.000Z</time>
+            </trkpt>
+            <trkpt lon="17.662122901529074" lat="59.192982176318765">
+                <ele>69.5999984741211</ele>
+                <time>2013-03-02T15:40:38.000Z</time>
+            </trkpt>
+        </trkseg>
+    </trk>
+</gpx>
