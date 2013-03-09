@@ -1,7 +1,6 @@
 var assert = require('assert');
 
 var gpx = require('../lib/gpx-parser.js');
-
 var vows = require('vows');
 
 vows.describe('Test suite for parsing gpx').addBatch({
@@ -20,7 +19,8 @@ vows.describe('Test suite for parsing gpx').addBatch({
 				lng : 17.662122901529074,
 				ele : 69.5999984741211,
 				time : new Date('2013-03-02T15:40:38.000Z')
-			}])
+			}]);
+			
 		}
 	},
 	'Parse gpx file data.gpx' : {
@@ -38,7 +38,8 @@ vows.describe('Test suite for parsing gpx').addBatch({
 				lng : 17.662122901529074,
 				ele : 69.5999984741211,
 				time : new Date('2013-03-02T15:40:38.000Z')
-			}])
+			}]);
+			
 		}
 	}
 }).export(module)
