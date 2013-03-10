@@ -9,13 +9,19 @@ GPS related functionalities
 ## Functions
 
 ### getDistance(lng1, lat1, lng2, lat2)
+
+Calculate distance of 2 given points
+
 * `lng1` longitude of point 1 in decimal degrees
 * `lat1` latitude of point 1 in decimal degrees
 * `lng2` longitude of point 2 in decimal degrees
 * `lat2` latitude of point 2 in decimal degrees
 
 ### getTotalDistance(points)
-* `points` array of coordinates, example
+
+Calculate total distance of a serial of points
+
+* `points` array of point, example
 
 	[{lat: 59.19288511388004,
 	lng: 17.66255029477179
@@ -31,7 +37,7 @@ Convert decimal degrees to degrees, minutes and seconds (return an object)
 Return a string representation in DMS format, ie 59° 19' 59.88" N
 
 ### getDMSLongitude(decDegrees)
-Return a string representation in DMS format, 18° 3' 0" E
+Return a string representation in DMS format, ie 18° 3' 0" E
 
 ### toDD(degrees, minutes, seconds)
 Convert to decimal degrees
