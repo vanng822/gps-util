@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Running">
+      <Id>2013-01-16T18:54:45.000Z</Id>
+      <Lap StartTime="2013-01-16T18:54:45.000Z">
+        <TotalTimeSeconds>1971.46</TotalTimeSeconds>
+        <DistanceMeters>6157.61</DistanceMeters>
+        <MaximumSpeed>4.500999927520752</MaximumSpeed>
+        <Calories>374</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2013-01-16T18:54:46.000Z</Time>
+            <AltitudeMeters>48.400001525878906</AltitudeMeters>
+            <DistanceMeters>0.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>1.7480000257492068</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2013-01-16T18:54:52.000Z</Time>
+            <Position>
+              <LatitudeDegrees>59.19330538250506</LatitudeDegrees>
+              <LongitudeDegrees>17.662933934479952</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>68.4000015258789</AltitudeMeters>
+            <DistanceMeters>10.600000381469727</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>1.9600000381469729</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2013-01-16T18:54:58.000Z</Time>
+            <Position>
+              <LatitudeDegrees>59.19347486458719</LatitudeDegrees>
+              <LongitudeDegrees>17.662943825125694</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>68.4000015258789</AltitudeMeters>
+            <DistanceMeters>29.540000915527344</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>2.598000049591064</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>3.122999906539917</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Garmin Forerunner 110</Name>
+        <UnitId>3822811998</UnitId>
+        <ProductID>1124</ProductID>
+        <Version>
+          <VersionMajor>2</VersionMajor>
+          <VersionMinor>50</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Garmin Connect API</Name>
+    <Build>
+      <Version>
+        <VersionMajor>13</VersionMajor>
+        <VersionMinor>1</VersionMinor>
+        <BuildMajor>0</BuildMajor>
+        <BuildMinor>0</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>
