@@ -43,9 +43,18 @@ Return a string representation in DMS format, ie 18° 3' 0" E
 Convert to decimal degrees
 
 ### gpxParse(data, callback)
-* `data` xml string
+* `data` xml string of gpx format
 * `callback` function which take 2 arguments, error and result
 
 ### gpxParseFile(filename, callback)
-* `filename` file to parse the data
+* `filename` file to parse the data in of gpx format
+* `callback` function which take 2 arguments, error and result
+
+
+### tcxParse(data, callback)
+* `data` xml string of tcx format
+* `callback` function which take 2 arguments, error and result
+
+### tcxParseFile(filename, callback)
+* `filename` file to parse the data in of tcx format
 * `callback` function which take 2 arguments, error and result
