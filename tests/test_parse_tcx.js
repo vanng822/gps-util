@@ -1,7 +1,6 @@
 var assert = require('assert');
 
 var tcx = require('../lib/tcx-parser.js');
-var calc = require('../lib/distance-calculator.js')
 var vows = require('vows');
 
 vows.describe('Test suite for parsing tcx').addBatch({
@@ -10,8 +9,6 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseFile('./tests/data/data.tcx', this.callback);
 		},
 		'Should return an array of two tracking points' : function(err, result) {
-			console.log(calc.getTotalDistance(result));
-
 			assert.deepEqual(result, [{
 				distance : 0,
 				lat : null,
