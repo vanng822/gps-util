@@ -4,11 +4,19 @@ var tcx = require('../lib/tcx-parser.js');
 var vows = require('vows');
 
 vows.describe('Test suite for parsing tcx').addBatch({
+	'Parse broken tcx data' : {
+		topic : function() {
+			tcx.tcxParse('<?xml version="1.0" encoding="UTF-8"?><TrainingCenterDatabase><Activities><Activity Sport="Running"></TrainingCenterDatabase>', this.callback)
+		},
+		'Should return an error' : function(err, result) {
+			assert.equal(err != null, true)
+		}
+	},
 	'Parse tcx file data.tcx' : {
 		'topic' : function() {
 			tcx.tcxParseFile('./tests/data/data.tcx', this.callback);
 		},
-		'Should return an array of two tracking points' : function(err, result) {
+		'Should return an array of three tracking points' : function(err, result) {
 			assert.deepEqual(result, [{
 				distance : 0,
 				lat : null,
