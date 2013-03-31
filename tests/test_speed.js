@@ -49,7 +49,7 @@ vows.describe('Test suite speed').addBatch({
 		});
 		assert.equal(String(result), '08:56 / mile');
 	},
-	'calculatePace 0.65 m/s => 01:22:32 / mile' : function() {
+	'calculatePace 0.325 m/s => 01:22:32 / mile' : function() {
 		var result = speed.calculatePace(0.325, speed.calculatePaceTypes.PER_MILE);
 		assert.deepEqual(result, {
 			hours : 1,
