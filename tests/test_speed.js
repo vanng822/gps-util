@@ -7,6 +7,9 @@ vows.describe('Test suite speed').addBatch({
 	'calculateSpeed(100, 2013-01-16T18:54:36.000Z, 2013-01-16T18:54:46.000Z) = 10m/s' : function() {
 		assert.equal(speed.calculateSpeed(100, new Date('2013-01-16T18:54:36.000Z'), new Date('2013-01-16T18:54:46.000Z')), 10);
 	},
+	'calculateSpeed(100, 2013-01-16T18:54:46.000Z, 2013-01-16T18:54:46.000Z) = undefined' : function() {
+		assert.equal(speed.calculateSpeed(100, new Date('2013-01-16T18:54:46.000Z'), new Date('2013-01-16T18:54:46.000Z')), undefined);
+	},
 	'convertSpeed 10 with not supported conversion type SDFDSFSDFDSFDSFSDFD => Error' : function() {
 		assert.throws(function() {
 			speed.convertSpeed(10, 'SDFDSFSDFDSFDSFSDFD')
