@@ -12,7 +12,7 @@ vows.describe('Test suite speed').addBatch({
 	},
 	'convertSpeed 10 with not supported conversion type SDFDSFSDFDSFDSFSDFD => Error' : function() {
 		assert.throws(function() {
-			speed.convertSpeed(10, 'SDFDSFSDFDSFDSFSDFD')
+			speed.convertSpeed(10, 'SDFDSFSDFDSFDSFSDFD');
 		}, Error);
 	},
 	'convertSpeed 10 m/s => 36 km/h' : function() {
@@ -29,7 +29,7 @@ vows.describe('Test suite speed').addBatch({
 	},
 	'calculatePace 10 with not supported type GSFRRWSSDWEWE => Error' : function() {
 		assert.throws(function() {
-			speed.calculatePace(10, 'GSFRRWSSDWEWE')
+			speed.calculatePace(10, 'GSFRRWSSDWEWE');
 		}, Error);
 	},
 	'calculatePace 3 m/s => 05:33 / km' : function() {
