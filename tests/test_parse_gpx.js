@@ -56,7 +56,6 @@ vows.describe('Test suite for parsing gpx').addBatch({
 				ele : 69.5999984741211,
 				time : new Date('2013-03-02T15:40:38.000Z')
 			}]);
-			
 		}
 	}
 }).export(module)
