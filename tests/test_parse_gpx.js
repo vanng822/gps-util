@@ -19,11 +19,15 @@ vows.describe('Test suite for parsing gpx').addBatch({
 		},
 		'Should return an array of two tracking points' : function(err, result) {
 			assert.deepEqual(result, [{
+				distance: undefined,
+				speed: undefined,
 				lat : 59.19305333867669,
 				lng : 17.661922238767147,
 				ele : 69.4000015258789,
 				time : new Date('2013-03-02T15:40:31.000Z')
 			}, {
+				distance: undefined,
+				speed: undefined,
 				lat : 59.192982176318765,
 				lng : 17.662122901529074,
 				ele : 69.5999984741211,
@@ -38,11 +42,15 @@ vows.describe('Test suite for parsing gpx').addBatch({
 		},
 		'Should return an array of two tracking points' : function(err, result) {
 			assert.deepEqual(result, [{
+				distance: undefined,
+				speed: undefined,
 				lat : 59.19305333867669,
 				lng : 17.661922238767147,
 				ele : 69.4000015258789,
 				time : new Date('2013-03-02T15:40:31.000Z')
 			}, {
+				distance: undefined,
+				speed: undefined,
 				lat : 59.192982176318765,
 				lng : 17.662122901529074,
 				ele : 69.5999984741211,
