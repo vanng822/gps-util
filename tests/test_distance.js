@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-var calculator = require('../lib/distance-calculator.js');
+var calculator = require('../lib/distance.js');
 
 var vows = require('vows');
 
