@@ -13,7 +13,10 @@ var expectedExportedFunctionNames = ['getDMSLatitude',
 			'getDMSLongitude',
 			'gpxParseFile',
 			'tcxParse',
-			'tcxParseFile'];
+			'tcxParseFile',
+			'getDiffInSecs',
+			'RelativeTime',
+			'calculateFromGPX'];
 
 vows.describe('Test suite for exported functionalities').addBatch({
 	'Exported function names' : function() {
