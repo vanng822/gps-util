@@ -58,3 +58,11 @@ Convert to decimal degrees
 ### tcxParseFile(filename, callback)
 * `filename` file to parse the data in of tcx format
 * `callback` function which take 2 arguments, error and result
+
+### calculateFromGPX(points, callback, fromIndex, toIndex)
+* `points` Track points for instance returned value from gpxParse
+* `callback` function(error, result)
+* `fromIndex` Integer from 0
+* `toIndex` Integer from 1
+
+Return a TrackingResult (see calc.js for details)
