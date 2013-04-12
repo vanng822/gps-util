@@ -4,13 +4,15 @@ var tcx = require('../lib/tcx-parser.js');
 var vows = require('vows');
 
 vows.describe('Test suite for parsing tcx').addBatch({
-	'Parse broken tcx data' : {
-		topic : function() {
-			tcx.tcxParse('<?xml version="1.0" encoding="UTF-8"?><TrainingCenterDatabase><Activities><Activity Sport="Running"></TrainingCenterDatabase>', this.callback)
-		},
-		'Should return an error' : function(err, result) {
+	'Parse broken tcx data should return an error' : function() {
+		tcx.tcxParse('<?xml version="1.0" encoding="UTF-8"?><TrainingCenterDatabase><Activities><Activity Sport="Running"></TrainingCenterDatabase>', function(err, result) {
 			assert.equal(err != null, true)
-		}
+		});
+	},
+	'Parse valid xml but wrong format should return an error' : function() {
+		tcx.tcxParse('<?xml version="1.0" encoding="UTF-8"?><gpx></gpx>', function(err, result) {
+			assert.equal(err != null, true);
+		});
 	},
 	'Parse tcx file data.tcx' : {
 		'topic' : function() {
