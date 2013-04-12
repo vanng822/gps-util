@@ -61,8 +61,10 @@ Convert to decimal degrees
 
 ### calculateFromGPX(points, callback, fromIndex, toIndex)
 * `points` Track points for instance returned value from gpxParse
-* `callback` function(error, result)
+* `callback` function(error, result) result is a TrackingResult (see calc.js for details)
 * `fromIndex` Integer from 0
 * `toIndex` Integer from 1
 
-Return a TrackingResult (see calc.js for details)
+### gpxParseURL(url, callback)
+* `url` where the gpx data is located
+* `callback` function(error, result)
