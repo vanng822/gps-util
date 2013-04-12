@@ -50,6 +50,9 @@ Convert to decimal degrees
 * `filename` file to parse the data in of gpx format
 * `callback` function which take 2 arguments, error and result
 
+### gpxParseURL(url, callback)
+* `url` where the gpx data is located
+* `callback` function(error, result)
 
 ### tcxParse(data, callback)
 * `data` xml string of tcx format
@@ -59,12 +62,13 @@ Convert to decimal degrees
 * `filename` file to parse the data in of tcx format
 * `callback` function which take 2 arguments, error and result
 
+### tcxParseURL(url, callback)
+* `url` where the tcx data is located
+* `callback` function(error, result)
+
 ### calculateFromGPX(points, callback, fromIndex, toIndex)
 * `points` Track points for instance returned value from gpxParse
 * `callback` function(error, result) result is a TrackingResult (see calc.js for details)
 * `fromIndex` Integer from 0
 * `toIndex` Integer from 1
 
-### gpxParseURL(url, callback)
-* `url` where the gpx data is located
-* `callback` function(error, result)
