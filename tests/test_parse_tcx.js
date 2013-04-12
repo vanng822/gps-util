@@ -114,7 +114,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/bad.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
-			assert.equal(err != null, true)
+			assert.equal(err != null, true);
 		}
 	},
 	'Parse bad tcx URL which returns a soft 404' : {
@@ -122,7 +122,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/soft404.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
-			assert.equal(err != null, true)
+			assert.equal(err != null, true);
 		}
 	},
 	'Parse tcx URL which returns a broken xml' : {
@@ -130,7 +130,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/broken.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
-			assert.equal(err != null, true)
+			assert.equal(err != null, true);
 		}
 	}
 }).export(module)

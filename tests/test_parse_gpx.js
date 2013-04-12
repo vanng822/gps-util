@@ -116,7 +116,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/bad.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
-			assert.equal(err != null, true)
+			assert.equal(err != null, true);
 		}
 	},
 	'Parse bad gpx URL which returns a soft 404' : {
@@ -124,7 +124,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/soft404.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
-			assert.equal(err != null, true)
+			assert.equal(err != null, true);
 		}
 	},
 	'Parse gpx URL which returns a broken xml' : {
@@ -132,7 +132,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/broken.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
-			assert.equal(err != null, true)
+			assert.equal(err != null, true);
 		}
 	}
 }).export(module)
