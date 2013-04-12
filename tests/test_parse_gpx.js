@@ -28,7 +28,7 @@ http.createServer(function(req, res) {
 		res.writeHead(200, {
 			'Content-Type' : 'text/xml'
 		});
-		res.end('This is a soft 404 which has 202 as status code');
+		res.end('This is a soft 404 which has 200 as status code');
 	} else if(req.url == '/broken.gpx') {
 		res.writeHead(200, {
 			'Content-Type' : 'text/xml'
