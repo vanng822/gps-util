@@ -5,7 +5,7 @@
 	"author": "Nguyen Van Nhu",
 	"homepage": "https://github.com/vanng822/gps-util",
 	"contributors": [],
-	"dependencies": ["xml2js"],
+	"dependencies": ["xml2js", "data2xml"],
 	"devDependencies": ["vows"],
 	"main": "./index.js",
 	"repository": {
@@ -18,5 +18,5 @@
 	"bugs": {
 		"url": "https://github.com/vanng822/gps-util/issues"
 	},
-	"version": "0.0.11"
+	"version": "0.0.12"
 }
