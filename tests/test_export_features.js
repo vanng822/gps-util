@@ -19,6 +19,7 @@ var expectedExportedFunctionNames = ['getDMSLatitude',
 			'getDiffInSecs',
 			'RelativeTime',
 			'calculateFromGPX',
+			'calculateFromTCX',
 			'toGPX',
 			'gpx2kml'];
 
