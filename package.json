@@ -13,7 +13,7 @@
 		"url": "git://github.com/vanng822/gps-util.git"
 	},
 	"scripts": {
-		"test": "vows --spec tests/test_*.js"
+		"test": "vows --v --spec tests/test_*.js"
 	},
 	"bugs": {
 		"url": "https://github.com/vanng822/gps-util/issues"
