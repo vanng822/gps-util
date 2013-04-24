@@ -5,7 +5,7 @@
 	"author": "Nguyen Van Nhu",
 	"homepage": "https://github.com/vanng822/gps-util",
 	"contributors": [],
-	"dependencies": ["xml2js", "data2xml", "mmmagic"],
+	"dependencies": ["xml2js", "data2xml"],
 	"devDependencies": ["vows"],
 	"main": "./index.js",
 	"repository": {
@@ -13,10 +13,10 @@
 		"url": "git://github.com/vanng822/gps-util.git"
 	},
 	"scripts": {
-		"test": "vows --v --spec tests/test_*.js"
+		"test": "vows --spec tests/test_*.js"
 	},
 	"bugs": {
 		"url": "https://github.com/vanng822/gps-util/issues"
 	},
-	"version": "0.0.15"
+	"version": "0.0.14"
 }
