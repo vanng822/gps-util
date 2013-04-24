@@ -15,7 +15,7 @@ http.createServer(function(req, res) {
 				throw err;
 			}
 			res.writeHead(200, {
-				'Content-Type' : 'text/xml'
+				'Content-Type' : 'application/xml'
 			});
 			res.end(data);
 		});
@@ -26,12 +26,12 @@ http.createServer(function(req, res) {
 		res.end('Hey bad request!');
 	} else if(req.url == '/soft404.gpx') {
 		res.writeHead(200, {
-			'Content-Type' : 'text/xml'
+			'Content-Type' : 'application/xml'
 		});
 		res.end('This is a soft 404 which has 200 as status code');
 	} else if(req.url == '/broken.gpx') {
 		res.writeHead(200, {
-			'Content-Type' : 'text/xml'
+			'Content-Type' : 'application/xml'
 		});
 		res.end(['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '<time>2013-03-02T15:40:31.000Z</time>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', ' <time>2013-03-02T15:40:38.000Z</time>', '</trkpt>', '</gpx>'].join());
 	}

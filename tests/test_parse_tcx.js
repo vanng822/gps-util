@@ -15,7 +15,7 @@ http.createServer(function(req, res) {
 				throw err;
 			}
 			res.writeHead(200, {
-				'Content-Type' : 'text/xml'
+				'Content-Type' : 'application/xml'
 			});
 			res.end(data);
 		});
