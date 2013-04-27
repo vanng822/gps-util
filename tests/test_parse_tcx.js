@@ -34,6 +34,16 @@ http.createServer(function(req, res) {
 			'Content-Type' : 'text/xml'
 		});
 		res.end('<?xml version="1.0" encoding="UTF-8"?><TrainingCenterDatabase><Activities><Activity Sport="Running"></TrainingCenterDatabase>');
+	} else if (req.url == '/image.tcx') {
+		fs.readFile('./tests/data/loading.gif', function(err, data) {
+			if(err) {
+				throw err;
+			}
+			res.writeHead(200, {
+				'Content-Type' : 'application/xml'
+			});
+			res.end(data);
+		});
 	}
 }).listen(PORT, HOST);
 
@@ -168,6 +178,15 @@ vows.describe('Test suite for parsing tcx').addBatch({
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
+		}
+	},
+	'Parse image URL' : {
+		'topic' : function() {
+			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/image.tcx', this.callback);
+		},
+		'Should return an error' : function(err, result) {
+			assert.equal(err != null, true);
+			assert.equal(err.message, 'Got unexpected data type');
 		}
 	}
 }).export(module)

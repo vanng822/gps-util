@@ -34,6 +34,16 @@ http.createServer(function(req, res) {
 			'Content-Type' : 'application/xml'
 		});
 		res.end(['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '<time>2013-03-02T15:40:31.000Z</time>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', ' <time>2013-03-02T15:40:38.000Z</time>', '</trkpt>', '</gpx>'].join());
+	} else if (req.url == '/image.gpx') {
+		fs.readFile('./tests/data/loading.gif', function(err, data) {
+			if(err) {
+				throw err;
+			}
+			res.writeHead(200, {
+				'Content-Type' : 'application/xml'
+			});
+			res.end(data);
+		});
 	}
 }).listen(PORT, HOST);
 
@@ -141,6 +151,15 @@ vows.describe('Test suite for parsing gpx').addBatch({
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
+		}
+	},
+	'Parse image URL' : {
+		'topic' : function() {
+			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/image.gpx', this.callback);
+		},
+		'Should return an error' : function(err, result) {
+			assert.equal(err != null, true);
+			assert.equal(err.message, 'Got unexpected data type');
 		}
 	}
 }).export(module)
