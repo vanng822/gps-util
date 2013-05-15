@@ -8,7 +8,8 @@
 	"dependencies": {
 		"xml2js": "0.2.6",
 		"data2xml": "0.8.0",
-		"mmmagic": "0.3.1"
+		"mmmagic": "0.3.1",
+		"gm": "1.9.1"
 	},
 	"devDependencies": ["vows"],
 	"main": "./index.js",
@@ -22,5 +23,5 @@
 	"bugs": {
 		"url": "https://github.com/vanng822/gps-util/issues"
 	},
-	"version": "0.0.17"
+	"version": "0.0.18"
 }

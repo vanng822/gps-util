@@ -25,4 +25,4 @@ var exportLibs = function(exports /*libs to include */) {
 	return exports;
 };
 
-exportLibs(module.exports, 'distance', 'formatter', 'gpx-parser', 'tcx-parser', 'time', 'calc', 'creator');
+exportLibs(module.exports, 'distance', 'formatter', 'gpx-parser', 'tcx-parser', 'time', 'calc', 'creator', 'image');
