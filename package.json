@@ -5,7 +5,11 @@
 	"author": "Nguyen Van Nhu",
 	"homepage": "https://github.com/vanng822/gps-util",
 	"contributors": [],
-	"dependencies": ["xml2js", "data2xml", "mmmagic"],
+	"dependencies": {
+		"xml2js": "0.8.0",
+		"data2xml": "0.2.6",
+		"mmmagic": "0.3.1"
+	},
 	"devDependencies": ["vows"],
 	"main": "./index.js",
 	"repository": {
