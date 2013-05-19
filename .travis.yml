@@ -4,4 +4,4 @@ node_js:
   - "0.10"
   - "0.11"
 before_install:
-  - sudo apt-get install graphicsmagick
+  - sudo apt-get install libimage-exif-perl  

@@ -1,2 +1,4 @@
 .project
 node_modules/*
+tests/data/kth.del.jpg
+tests/data/kth.del.jpg_original

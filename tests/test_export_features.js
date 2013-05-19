@@ -22,7 +22,8 @@ var expectedExportedFunctionNames = ['getDMSLatitude',
 			'calculateFromTCX',
 			'toGPX',
 			'gpx2kml',
-			'imageGpsInfo'];
+			'imageGpsInfo',
+			'removeGPSInfo'];
 
 vows.describe('Test suite for exported functionalities').addBatch({
 	'Exported function names' : function() {
