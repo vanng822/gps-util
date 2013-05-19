@@ -70,3 +70,10 @@ Convert to decimal degrees
 * `fromIndex` Integer from 0
 * `toIndex` Integer from 1
 
+### imageGpsInfo(image, callback)
+* `image` path to image to get GPS info
+* `callback` function(error, result)
+
+### removeGPSInfo(filename, callback)
+* `image` path to image to delete GPS info
+* `callback` function(error, result) result is boolean
