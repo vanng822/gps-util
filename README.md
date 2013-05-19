@@ -1,8 +1,8 @@
 gps-util
 ========
 
-GPS related functionalities
-
+GPS related functionalities. For getting and deleting gps info on an image one need to install exiftool.
+http://www.sno.phy.queensu.ca/~phil/exiftool/index.html
 
 ## Functions
 
