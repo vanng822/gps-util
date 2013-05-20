@@ -74,6 +74,6 @@ Convert to decimal degrees
 * `image` path to image to get GPS info
 * `callback` function(error, result)
 
-### removeGPSInfo(filename, callback)
+### removeGPSInfo(image, callback)
 * `image` path to image to delete GPS info
 * `callback` function(error, result) result is boolean
