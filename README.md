@@ -52,6 +52,15 @@ Convert to decimal degrees
 * `url` where the gpx data is located
 * `callback` function(error, result)
 
+### toGPX(trackingResult, callback, name)
+* `trackingResult`
+* `callback` function(error, result)
+* `name` the name you want to call for this gpx document
+
+### gpx2kml(points, callback)
+* `points` Track points for instance returned value from gpxParse
+* `callback` function(error, result)
+
 ### tcxParse(data, callback)
 * `data` xml string of tcx format
 * `callback` function which take 2 arguments, error and result
