@@ -57,8 +57,8 @@ Convert to decimal degrees
 * `callback` function(error, result)
 * `name` the name you want to call for this gpx document
 
-### gpx2kml(points, callback)
-* `points` Track points for instance returned value from gpxParse
+### toKml(points, callback)
+* `points` Track points for instance returned value from gpxParse or tcxParse
 * `callback` function(error, result)
 
 ### tcxParse(data, callback)

@@ -41,7 +41,7 @@ vows.describe('Test suite for creator').addBatch({
 
 			assert.equal(result, expected);
 		},
-		'creator.gpx2kml: Given tracking result' : {
+		'creator.toKml: Given tracking result' : {
 			topic : function() {
 				var points = [{
 					lat : 59.19305333867669,
@@ -59,7 +59,7 @@ vows.describe('Test suite for creator').addBatch({
 					distance : 393.5258418687884
 				}];
 
-				creator.gpx2kml(points, this.callback);
+				creator.toKml(points, this.callback);
 			},
 			'should get a xml string in kml format' : function(err, result) {
 				var expected = '<?xml version="1.0" encoding="utf-8"?>';

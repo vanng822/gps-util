@@ -21,7 +21,7 @@ var expectedExportedFunctionNames = ['getDMSLatitude',
 			'calculateFromGPX',
 			'calculateFromTCX',
 			'toGPX',
-			'gpx2kml',
+			'toKml',
 			'imageGpsInfo',
 			'removeGPSInfo'];
 
