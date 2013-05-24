@@ -9,7 +9,7 @@ perl Makefile.PL
 sudo make install
 
 ## clean up
-#cd ..
+cd ..
 sudo rm Image-ExifTool-${VERSION}.tar.gz
 sudo rm -r Image-ExifTool-${VERSION}
 
