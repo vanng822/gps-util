@@ -44,5 +44,18 @@ vows.describe('Test suite for getting image gps info').addBatch({
 				fs.unlink('./tests/data/kth.del.jpg');
 			}
 		}
+	},
+	'When I copy image' : {
+		'topic': function() {
+			fs.createReadStream('./tests/data/kth.jpg').pipe(fs.createWriteStream('./tests/data/kth.del2.jpg'));
+			image.imageGpsInfo('./tests/data/kth.del.jpg', this.callback);
+		},
+		'it should reserve gps info': function(err, result) {
+			assert.equal(err, null);
+			assert.equal(result.GPSLatitude, 59.347);
+			assert.equal(result.GPSLongitude, 18.073666666666668);
+			assert.equal(result.GPSAltitude, 31);
+			fs.unlink('./tests/data/kth.del2.jpg');
+		}
 	}
 }).export(module);
