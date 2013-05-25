@@ -25,14 +25,24 @@ vows.describe('Test suite for getting image gps info').addBatch({
 			assert.equal(result.GPSAltitude, 31);	
 		}
 	},
-	'delete gps info' : {
+	'delete gps info on an image' : {
 		'topic' : function() {
 			fs.createReadStream('./tests/data/kth.jpg').pipe(fs.createWriteStream('./tests/data/kth.del.jpg'));
 			image.removeGPSInfo('./tests/data/kth.del.jpg', this.callback);
 		},
-		'the returned data should contain longitude: 18.073666666666668 and latitude: 59.347' : function(err, result) {
+		'it should be success': function(err, success) {
 			assert.equal(err, null);
-			assert.equal(result, true);
+			assert.equal(success, true);
+		},
+		'and when I try to get gps info from this image': {
+			'topic' : function(err, success) {
+				image.imageGpsInfo('./tests/data/kth.del.jpg', this.callback);
+			},
+			'it should return null' : function(err, result) {
+				assert.equal(err, null);
+				assert.equal(result, null);
+				fs.unlink('./tests/data/kth.del.jpg');
+			}
 		}
 	}
 }).export(module);
