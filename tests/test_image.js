@@ -45,10 +45,10 @@ vows.describe('Test suite for getting image gps info').addBatch({
 			}
 		}
 	},
-	'When I copy image' : {
+	'When I copy image using fs' : {
 		'topic': function() {
 			fs.createReadStream('./tests/data/kth.jpg').pipe(fs.createWriteStream('./tests/data/kth.del2.jpg'));
-			image.imageGpsInfo('./tests/data/kth.del.jpg', this.callback);
+			image.imageGpsInfo('./tests/data/kth.del2.jpg', this.callback);
 		},
 		'it should reserve gps info': function(err, result) {
 			assert.equal(err, null);
