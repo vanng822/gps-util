@@ -4,5 +4,5 @@ node_js:
   - "0.10"
   - "0.11"
 script:
-  - cd tests/ && ./install_exiftool.sh && cd ..
+  - cd scripts/ && ./install_exiftool.sh && cd ..
   - npm test

@@ -5,7 +5,7 @@ GPS related functionalities. For getting and deleting gps info on an image one n
 
 http://www.sno.phy.queensu.ca/~phil/exiftool/index.html
 
-Make sure exiftool is executable. if you have to install it manually on linux you can try ./tests/install_exiftool.sh
+Make sure exiftool is executable. if you have to install it manually on linux you can try ./scripts/install_exiftool.sh
 
 ## Functions
 
