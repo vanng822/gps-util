@@ -96,6 +96,6 @@ Convert to decimal degrees
 * `precision` number of chars to represent the gps position, default 12
 
 ### geohashDecode(hash)
-* `hash` path to image to delete GPS info
+* `hash` hashed string representing the gps position
 * return object of latitude, longitude, error
 
