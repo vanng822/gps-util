@@ -89,3 +89,13 @@ Convert to decimal degrees
 ### removeGPSInfo(image, callback)
 * `image` path to image to delete GPS info
 * `callback` function(error, result) result is boolean
+
+### geohashEncode(latitude, longitude, precision)
+* `latitude` decimal latitude of the gps position
+* `longitude` decimal longitude of the gps position 
+* `precision` number of chars to represent the gps position, default 12
+
+### geohashDecode(hash)
+* `hash` path to image to delete GPS info
+* return object of latitude, longitude, error
+

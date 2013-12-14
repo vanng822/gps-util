@@ -1,7 +1,7 @@
 {
 	"name": "gps-util",
 	"description": "GPS related functionalities",
-	"keywords": ["gps", "gpx", "tcx", "parser", "distance", "calculator"],
+	"keywords": ["gps", "gpx", "tcx", "parser", "distance", "calculator", "geohash"],
 	"author": "Nguyen Van Nhu",
 	"homepage": "https://github.com/vanng822/gps-util",
 	"contributors": [],
@@ -31,5 +31,5 @@
 			"url": "https://github.com/vanng822/gps-util/blob/master/LICENSE"
 		}
 	],
-	"version": "0.0.22"
+	"version": "0.0.23"
 }
