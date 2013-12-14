@@ -26,5 +26,14 @@ vows.describe('Test suite geohash').addBatch({
 		var result = geohash.geohashEncode(57.64911,10.40744);
 		assert.equal(result, 'u4pruydqqvj8');
 	},
+	'Given coordinate 59.328930, 18.064910 I should get u6sce0d2nfjh with no given precision' : function() {
+		var result = geohash.geohashEncode(59.328930, 18.064910);
+		assert.equal(result, 'u6sce0d2nfjh');	
+	},
+	'Given u4ouydh I should get' : function() {
+		assert.throws(function() {
+			geohash.geohashDecode('u4ouydh');
+		}, Error);
+	}
 }).export(module);
 
