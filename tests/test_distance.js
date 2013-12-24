@@ -27,6 +27,9 @@ vows.describe('Test suite distance').addBatch({
 				lat: 59.19290036894381,
 				lng: 17.662896132096648
 			}]), 60.29237674121896);
-	}
+	},
+	/*'Given coordinate I get bounding box for radius of 40000m': function() {
+		console.log(calculator.getBoundingBox(1.000, 2.333, 40000));
+	}*/
 })
 .export(module);

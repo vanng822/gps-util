@@ -31,6 +31,13 @@ Calculate total distance of a serial of points
 	lng: 17.662896132096648
 	}]
 
+### getBoundingBox(lng, lat, distance)
+* `lng` longitude of the center, in decimal degrees.
+* `lat` latitude of the center, in decimal degrees.
+* `distance` radius that spans the bounding box, in meters.
+
+return an array containing 2 points that represent the bounding box.
+
 ### toDMS(decDegrees)
 Convert decimal degrees to degrees, minutes and seconds (return an object)
 
