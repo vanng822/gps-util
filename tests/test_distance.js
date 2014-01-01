@@ -30,7 +30,7 @@ vows.describe('Test suite distance').addBatch({
 	'Given coordinate I get a bounding box' : function() {
 		var getDiff = function(lng, lat, r) {
 			/* diagonal of the box compared to better appr distance */
-			var box = calculator.getBoundingBox(lng, lat, r);
+			var box = calculator.getBoundingBox(lat, lng, r);
 			var d = calculator.getDistance(box[0].lng, box[0].lat, box[1].lng, box[1].lat);
 			var line = 2 * Math.sqrt(2) * r;
 			var diff = Math.abs(line - d);
