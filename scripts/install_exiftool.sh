@@ -1,5 +1,5 @@
 
-VERSION=9.44
+VERSION=9.58
 
 wget http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-${VERSION}.tar.gz
 tar -xzf Image-ExifTool-${VERSION}.tar.gz
