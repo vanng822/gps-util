@@ -38,6 +38,11 @@ Calculate total distance of a serial of points
 
 return an array containing 2 points that represent the bounding box.
 
+### getMidPoint(points)
+* `points` list of coordinate, each point with properties lat and lng
+
+return Object/point with lat and lng
+
 ### toDMS(decDegrees)
 Convert decimal degrees to degrees, minutes and seconds (return an object)
 

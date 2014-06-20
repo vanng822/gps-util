@@ -46,5 +46,38 @@ vows.describe('Test suite distance').addBatch({
 		assert.ok(getDiff(28.047305100000017, -26.2041028, 20000) < 0.5);
 		assert.ok(getDiff(-74.0059731, 40.7143528, 20000) < 0.5);
 		assert.ok(getDiff(100.52412349999997, 13.7278956, 20000) < 0.5);
+	},
+	'Given one point I should get the same point as midpoint' : function() {
+		assert.deepEqual( calculator.getMidPoint([{
+				lat : 59.19290036894381,
+				lng : 17.662896132096648
+			}]), {
+				lat : 59.19290036894381,
+				lng : 17.662896132096648
+			});
+	},
+	'Given same point multi-times should get same midpoint' : function() {
+		var point = {
+				lat : 59.1929003689438,
+				lng : 17.662896132096648
+			};
+				
+		var result = calculator.getMidPoint([point,point,point]);
+		assert.ok(Math.abs(point.lat - result.lat) < 0.000000000001);
+		assert.ok(Math.abs(point.lng - result.lng) < 0.000000000001);
+	},
+	'Given 2 points should get midpoint in between' : function() {
+		var point = {
+				lat : 59.2,
+				lng : 17.2
+			};
+		
+		var point2 = {
+				lat : 59.4,
+				lng : 17.4
+			};		
+		var result = calculator.getMidPoint([point,point2]);
+		assert.ok(Math.abs(59.3 - result.lat) < 0.01);
+		assert.ok(Math.abs(17.3 - result.lng) < 0.01);
 	}
 }).export(module);
