@@ -2,50 +2,51 @@ var assert = require('assert');
 
 var tcx = require('../lib/tcx-parser.js');
 var vows = require('vows');
+var nock = require('nock');
 
 /* For testing url based gpx data */
 var http = require('http');
 var fs = require('fs');
-var PORT = 8081;
-var HOST = '127.0.0.1';
-http.createServer(function(req, res) {
-	if(req.url == '/data.tcx') {
-		fs.readFile('./tests/data/data.tcx', function(err, data) {
-			if(err) {
-				throw err;
-			}
-			res.writeHead(200, {
-				'Content-Type' : 'application/xml'
-			});
-			res.end(data);
-		});
-	} else if(req.url == '/bad.tcx') {
-		res.writeHead(404, {
-			'Content-Type' : 'text/html'
-		});
-		res.end('Hey bad request!');
-	} else if(req.url == '/soft404.tcx') {
-		res.writeHead(200, {
-			'Content-Type' : 'text/xml'
-		});
-		res.end('This is a soft 404 which has 200 as status code');
-	} else if(req.url == '/broken.tcx') {
-		res.writeHead(200, {
-			'Content-Type' : 'text/xml'
-		});
-		res.end('<?xml version="1.0" encoding="UTF-8"?><TrainingCenterDatabase><Activities><Activity Sport="Running"></TrainingCenterDatabase>');
-	} else if (req.url == '/image.tcx') {
-		fs.readFile('./tests/data/loading.gif', function(err, data) {
-			if(err) {
-				throw err;
-			}
-			res.writeHead(200, {
-				'Content-Type' : 'application/xml'
-			});
-			res.end(data);
-		});
+var HOST = 'http://fakedomain.tld';
+fs.readFile('./tests/data/data.tcx', function(err, data) {
+	if(err) {
+		throw err;
 	}
-}).listen(PORT, HOST);
+	nock(HOST)
+	.get('/data.tcx')
+	.reply(200, data, {
+		'Content-Type' : 'application/xml'
+	});
+});
+nock(HOST)
+.get('/bad.tcx')
+.reply(404, 'Hey bad request!',{
+	'Content-Type' : 'text/html'
+});
+
+nock(HOST)
+.get('/soft404.tcx')
+.reply(200, 'This is a soft 404 which has 200 as status code',{
+	'Content-Type' : 'text/xml'
+});
+
+nock(HOST)
+.get('/broken.tcx')
+.reply(200, '<?xml version="1.0" encoding="UTF-8"?><TrainingCenterDatabase><Activities><Activity Sport="Running"></TrainingCenterDatabase>',{
+	'Content-Type' : 'text/xml'
+});
+
+
+fs.readFile('./tests/data/loading.gif', function(err, data) {
+	if(err) {
+		throw err;
+	}
+	nock(HOST)
+	.get('/image.tcx')
+	.reply(200, data,{
+		'Content-Type' : 'application/xml'
+	});
+});
 
 vows.describe('Test suite for parsing tcx').addBatch({
 	'Parse broken tcx data' : {
@@ -137,7 +138,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 	},
 	'Parse tcx URL' : {
 		'topic' : function() {
-			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/data.tcx', this.callback);
+			tcx.tcxParseURL(HOST + '/data.tcx', this.callback);
 		},
 		'Should return an array of two tracking points' : function(err, result) {
 			assert.deepEqual(result, [{
@@ -166,7 +167,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 	},
 	'Parse bad tcx URL' : {
 		'topic' : function() {
-			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/bad.tcx', this.callback);
+			tcx.tcxParseURL(HOST + '/bad.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
@@ -174,7 +175,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 	},
 	'Parse bad tcx URL which returns a soft 404' : {
 		'topic' : function() {
-			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/soft404.tcx', this.callback);
+			tcx.tcxParseURL(HOST + '/soft404.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
@@ -182,7 +183,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 	},
 	'Parse tcx URL which returns a broken xml' : {
 		'topic' : function() {
-			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/broken.tcx', this.callback);
+			tcx.tcxParseURL(HOST + '/broken.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
@@ -190,7 +191,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 	},
 	'Parse image URL' : {
 		'topic' : function() {
-			tcx.tcxParseURL('http://' + HOST + ':' + PORT + '/image.tcx', this.callback);
+			tcx.tcxParseURL(HOST + '/image.tcx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);

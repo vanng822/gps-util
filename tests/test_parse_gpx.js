@@ -2,50 +2,50 @@ var assert = require('assert');
 
 var gpx = require('../lib/gpx-parser.js');
 var vows = require('vows');
-
+var nock = require('nock');
 /* For testing url based gpx data */
 var http = require('http');
 var fs = require('fs');
-var PORT = 8080;
-var HOST = '127.0.0.1';
-http.createServer(function(req, res) {
-	if(req.url == '/data.gpx') {
-		fs.readFile('./tests/data/data.gpx', function(err, data) {
-			if(err) {
-				throw err;
-			}
-			res.writeHead(200, {
-				'Content-Type' : 'application/xml'
-			});
-			res.end(data);
-		});
-	} else if(req.url == '/bad.gpx') {
-		res.writeHead(404, {
-			'Content-Type' : 'text/html'
-		});
-		res.end('Hey bad request!');
-	} else if(req.url == '/soft404.gpx') {
-		res.writeHead(200, {
-			'Content-Type' : 'application/xml'
-		});
-		res.end('This is a soft 404 which has 200 as status code');
-	} else if(req.url == '/broken.gpx') {
-		res.writeHead(200, {
-			'Content-Type' : 'application/xml'
-		});
-		res.end(['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '<time>2013-03-02T15:40:31.000Z</time>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', ' <time>2013-03-02T15:40:38.000Z</time>', '</trkpt>', '</gpx>'].join());
-	} else if (req.url == '/image.gpx') {
-		fs.readFile('./tests/data/loading.gif', function(err, data) {
-			if(err) {
-				throw err;
-			}
-			res.writeHead(200, {
-				'Content-Type' : 'application/xml'
-			});
-			res.end(data);
-		});
+var HOST = 'http://fakedomain.tld';
+fs.readFile('./tests/data/data.gpx', function(err, data) {
+	if(err) {
+		throw err;
 	}
-}).listen(PORT, HOST);
+	nock(HOST)
+	.get('/data.gpx')
+	.reply(200, data, {
+		'Content-Type' : 'application/xml'
+	});
+});
+nock(HOST)
+.get('/bad.gpx')
+.reply(404, 'Hey bad request!',{
+	'Content-Type' : 'text/html'
+});
+
+nock(HOST)
+.get('/soft404.gpx')
+.reply(200, 'This is a soft 404 which has 200 as status code',{
+	'Content-Type' : 'text/xml'
+});
+
+nock(HOST)
+.get('/broken.tcx')
+.reply(200, ['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '<time>2013-03-02T15:40:31.000Z</time>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', ' <time>2013-03-02T15:40:38.000Z</time>', '</trkpt>', '</gpx>'].join(),{
+	'Content-Type' : 'text/xml'
+});
+
+
+fs.readFile('./tests/data/loading.gif', function(err, data) {
+	if(err) {
+		throw err;
+	}
+	nock(HOST)
+	.get('/image.gpx')
+	.reply(200, data,{
+		'Content-Type' : 'application/xml'
+	});
+});
 
 vows.describe('Test suite for parsing gpx').addBatch({
 	'Parse broken gpx data' : {
@@ -118,7 +118,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse gpx URL' : {
 		'topic' : function() {
-			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/data.gpx', this.callback);
+			gpx.gpxParseURL(HOST + '/data.gpx', this.callback);
 		},
 		'Should return an array of two tracking points' : function(err, result) {
 			assert.deepEqual(result, [{
@@ -140,7 +140,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse bad gpx URL' : {
 		'topic' : function() {
-			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/bad.gpx', this.callback);
+			gpx.gpxParseURL(HOST + '/bad.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
@@ -148,7 +148,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse bad gpx URL which returns a soft 404' : {
 		'topic' : function() {
-			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/soft404.gpx', this.callback);
+			gpx.gpxParseURL(HOST + '/soft404.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
@@ -156,7 +156,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse gpx URL which returns a broken xml' : {
 		'topic' : function() {
-			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/broken.gpx', this.callback);
+			gpx.gpxParseURL(HOST + '/broken.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
@@ -164,7 +164,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse image URL' : {
 		'topic' : function() {
-			gpx.gpxParseURL('http://' + HOST + ':' + PORT + '/image.gpx', this.callback);
+			gpx.gpxParseURL(HOST + '/image.gpx', this.callback);
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);

@@ -11,7 +11,8 @@
 		"shelly": "0.0.3"
 	},
 	"devDependencies": {
-		"vows": ">=0.7.0"
+		"vows": ">=0.7.0",
+		"nock": "*"
 	},
 	"main": "./index.js",
 	"repository": {
