@@ -8,7 +8,6 @@
 	"dependencies": {
 		"xml2js": "0.4.0",
 		"data2xml": "0.9.0",
-		"mmmagic": "0.4.1",
 		"shelly": "0.0.3"
 	},
 	"devDependencies": {
@@ -31,5 +30,5 @@
 			"url": "https://github.com/vanng822/gps-util/blob/master/LICENSE"
 		}
 	],
-	"version": "0.1.0"
+	"version": "0.5.0"
 }
