@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-var gsputil = require('../index');
+const gsputil = require('../index');
 if (process.argv.length !== 3) {
 	console.log('image file required!');
 	process.exit();
