@@ -25,7 +25,7 @@ vows.describe('Test suite for calc').addBatch({
 			assert.ok(Math.abs(result.totalDistance -  396.11024049087865) < preci);
 			assert.equal(result.totalTime, 89);
 
-			let point2 = result.points[2];
+			var point2 = result.points[2];
 			assert.ok(Math.abs(point2.lat - 59.18158857151866) < preci);
 			assert.ok(Math.abs(point2.lng - 17.673767544329166) < preci);
 			assert.ok(Math.abs(point2.ele - 33.400001525878906) < preci);
@@ -33,7 +33,7 @@ vows.describe('Test suite for calc').addBatch({
 			assert.ok(Math.abs(point2.distance - 34.83194761671427) < preci);
 			assert.deepEqual(point2.time, new Date('2012-04-28T16:04:39.000Z'));
 
-			let point18 = result.points[18];
+			var point18 = result.points[18];
 			assert.ok(Math.abs(point18.lat - 59.182679979130626) < preci);
 			assert.ok(Math.abs(point18.lng - 17.67968793399632) < preci);
 			assert.ok(Math.abs(point18.ele - 30.200000762939453) < preci);
