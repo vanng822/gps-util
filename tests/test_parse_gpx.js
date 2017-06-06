@@ -6,7 +6,7 @@ var nock = require('nock');
 /* For testing url based gpx data */
 var http = require('http');
 var fs = require('fs');
-var HOST = 'http://fakedomain.tld';
+var HOST = 'http://localhost';
 var data = fs.readFileSync('./tests/data/data.gpx');
 nock(HOST)
 .get('/data.gpx')
