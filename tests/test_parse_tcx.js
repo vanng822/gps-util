@@ -8,16 +8,14 @@ var nock = require('nock');
 var http = require('http');
 var fs = require('fs');
 var HOST = 'http://fakedomain.tld';
-fs.readFile('./tests/data/data.tcx', function(err, data) {
-	if(err) {
-		throw err;
-	}
-	nock(HOST)
-	.get('/data.tcx')
-	.reply(200, data, {
-		'Content-Type' : 'application/xml'
-	});
+var data = fs.readFileSync('./tests/data/data.tcx');
+
+nock(HOST)
+.get('/data.tcx')
+.reply(200, data, {
+	'Content-Type' : 'application/xml'
 });
+
 nock(HOST)
 .get('/bad.tcx')
 .reply(404, 'Hey bad request!',{

@@ -7,16 +7,13 @@ var nock = require('nock');
 var http = require('http');
 var fs = require('fs');
 var HOST = 'http://fakedomain.tld';
-fs.readFile('./tests/data/data.gpx', function(err, data) {
-	if(err) {
-		throw err;
-	}
-	nock(HOST)
-	.get('/data.gpx')
-	.reply(200, data, {
-		'Content-Type' : 'application/xml'
-	});
+var data = fs.readFileSync('./tests/data/data.gpx');
+nock(HOST)
+.get('/data.gpx')
+.reply(200, data, {
+	'Content-Type' : 'application/xml'
 });
+
 nock(HOST)
 .get('/bad.gpx')
 .reply(404, 'Hey bad request!',{
@@ -90,7 +87,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	'Parse gpx data should return an array of two tracking points null time' : function() {
 		gpx.gpxParse(['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', '</trkpt>', '</trkseg>', '</trk>', '</gpx>'].join(), function(err, result) {
 			assert.equal(err, null);
-			
+
 			var point1 = result[0];
 			var point2 = result[1];
 			var preci = 0.0000000000001;
