@@ -16,7 +16,7 @@ vows.describe('Test suite for calc').addBatch({
 			});
 		},
 		'expected result from calculateFromGPX' : function(err, result) {
-			let preci = 0.0000000000001;
+			var preci = 0.0000000000001;
 			assert.equal(err, null);
 			assert.equal(result.points.length, 20);
 			assert.ok(Math.abs(result.averageSpeed - 4.450676859448075) < preci);
