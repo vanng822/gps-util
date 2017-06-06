@@ -7,7 +7,7 @@ var nock = require('nock');
 /* For testing url based gpx data */
 var http = require('http');
 var fs = require('fs');
-var HOST = 'http://fakedomain.tld';
+var HOST = 'http://fakedomain2.tld';
 var data = fs.readFileSync('./tests/data/data.tcx');
 
 nock(HOST)
@@ -35,15 +35,11 @@ nock(HOST)
 });
 
 
-fs.readFile('./tests/data/loading.gif', function(err, data) {
-	if(err) {
-		throw err;
-	}
-	nock(HOST)
-	.get('/image.tcx')
-	.reply(200, data,{
-		'Content-Type' : 'application/xml'
-	});
+var imageData = fs.readFileSync('./tests/data/loading.gif');
+nock(HOST)
+.get('/image.tcx')
+.reply(200, imageData,{
+	'Content-Type' : 'application/xml'
 });
 
 vows.describe('Test suite for parsing tcx').addBatch({

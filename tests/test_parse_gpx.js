@@ -33,15 +33,11 @@ nock(HOST)
 });
 
 
-fs.readFile('./tests/data/loading.gif', function(err, data) {
-	if(err) {
-		throw err;
-	}
-	nock(HOST)
-	.get('/image.gpx')
-	.reply(200, data,{
-		'Content-Type' : 'application/xml'
-	});
+var imageData = fs.readFileSync('./tests/data/loading.gif');
+nock(HOST)
+.get('/image.gpx')
+.reply(200, imageData, {
+	'Content-Type' : 'application/xml'
 });
 
 vows.describe('Test suite for parsing gpx').addBatch({
