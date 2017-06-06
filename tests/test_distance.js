@@ -9,7 +9,7 @@ vows.describe('Test suite distance').addBatch({
 		assert.equal(calculator.getDistance(17.661922238767147, 59.19305333867669, 17.662122901529074, 59.192982176318765), 13.899604253423052);
 	},
 	'total distance of given points expected to be 60.29237674121896m' : function() {
-		assert.equal(calculator.getTotalDistance([{
+		assert.ok(Math.abs(calculator.getTotalDistance([{
 			lat : 59.19305333867669,
 			lng : 17.661922238767147,
 			ele : 69.4000015258789,
@@ -25,7 +25,7 @@ vows.describe('Test suite distance').addBatch({
 		}, {
 			lat : 59.19290036894381,
 			lng : 17.662896132096648
-		}]), 60.29237674121896);
+		}]) - 60.29237674121896) < 0.0000000000001);
 	},
 	'Given coordinate I get a bounding box' : function() {
 		var getDiff = function(lng, lat, r) {
@@ -37,7 +37,7 @@ vows.describe('Test suite distance').addBatch({
 			//console.log(d, line, diff, box);
 			return diff;
 		}
-		
+
 		assert.ok(getDiff(2.333, 1.000, 20000) < 0.5);
 		assert.ok(getDiff(59.3333, 18.05, 20000) < 0.5);
 		assert.ok(getDiff(105.85, 21.0333, 20000) < 0.5);
@@ -61,7 +61,7 @@ vows.describe('Test suite distance').addBatch({
 				lat : 59.1929003689438,
 				lng : 17.662896132096648
 			};
-				
+
 		var result = calculator.getMidPoint([point,point,point]);
 		assert.ok(Math.abs(point.lat - result.lat) < 0.000000000001);
 		assert.ok(Math.abs(point.lng - result.lng) < 0.000000000001);
@@ -71,11 +71,11 @@ vows.describe('Test suite distance').addBatch({
 				lat : 59.2,
 				lng : 17.2
 			};
-		
+
 		var point2 = {
 				lat : 59.4,
 				lng : 17.4
-			};		
+			};
 		var result = calculator.getMidPoint([point,point2]);
 		assert.ok(Math.abs(59.3 - result.lat) < 0.01);
 		assert.ok(Math.abs(17.3 - result.lng) < 0.01);
