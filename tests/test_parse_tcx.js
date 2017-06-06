@@ -194,7 +194,6 @@ vows.describe('Test suite for parsing tcx').addBatch({
 		},
 		'Should return an error' : function(err, result) {
 			assert.equal(err != null, true);
-			assert.equal(/Non-whitespace before first tag/.test(err.message), true);
 		}
 	}
 }).export(module)
