@@ -68,21 +68,23 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse gpx data should return an array of two tracking points' : function() {
 		gpx.gpxParse(['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '<time>2013-03-02T15:40:31.000Z</time>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', ' <time>2013-03-02T15:40:38.000Z</time>', '</trkpt>', '</trkseg>', '</trk>', '</gpx>'].join(), function(err, result) {
-			assert.deepEqual(result, [{
-				distance : undefined,
-				speed : undefined,
-				lat : 59.19305333867669,
-				lng : 17.661922238767147,
-				ele : 69.4000015258789,
-				time : new Date('2013-03-02T15:40:31.000Z')
-			}, {
-				distance : undefined,
-				speed : undefined,
-				lat : 59.192982176318765,
-				lng : 17.662122901529074,
-				ele : 69.5999984741211,
-				time : new Date('2013-03-02T15:40:38.000Z')
-			}]);
+			let point1 = result[0];
+			let point2 = result[1];
+			let preci = 0.0000000000001;
+
+			assert.ok(Math.abs(point1.lat - 59.19305333867669) < preci);
+			assert.ok(Math.abs(point1.lng - 17.661922238767147) < preci);
+			assert.ok(Math.abs(point1.ele - 69.4000015258789) < preci);
+			assert.equal(point1.speed, undefined);
+			assert.equal(point1.distance, undefined);
+			assert.deepEqual(point1.time, new Date('2013-03-02T15:40:31.000Z'));
+
+			assert.ok(Math.abs(point2.lat - 59.192982176318765) < preci);
+			assert.ok(Math.abs(point2.lng - 17.662122901529074) < preci);
+			assert.ok(Math.abs(point2.ele - 69.5999984741211) < preci);
+			assert.equal(point2.speed, undefined);
+			assert.equal(point2.distance, undefined);
+			assert.deepEqual(point2.time, new Date('2013-03-02T15:40:38.000Z'));
 		});
 	},
 	'Parse gpx data should return an array of two tracking points null time' : function() {
