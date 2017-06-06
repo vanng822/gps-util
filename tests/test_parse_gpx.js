@@ -149,6 +149,8 @@ vows.describe('Test suite for parsing gpx').addBatch({
 		},
 		'Should return an array of two tracking points' : function(err, result) {
 
+			assert.equal(result.length, 2);
+			
 			var point1 = result[0];
 			var point2 = result[1];
 			var preci = 0.0000000000001;
