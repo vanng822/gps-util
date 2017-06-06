@@ -89,7 +89,8 @@ vows.describe('Test suite for parsing gpx').addBatch({
 	},
 	'Parse gpx data should return an array of two tracking points null time' : function() {
 		gpx.gpxParse(['<gpx version="1.1">', '<metadata>', '<link href="connect.garmin.com">', '<text>Garmin Connect</text>', '</link>', '  <time>2013-03-02T15:40:32.000Z</time>', ' </metadata>', '<trk>', '<name>Untitled</name>', ' <trkseg>', '<trkpt lon="17.661922238767147" lat="59.19305333867669">', '<ele>69.4000015258789</ele>', '</trkpt>', '<trkpt lon="17.662122901529074" lat="59.192982176318765">', '<ele>69.5999984741211</ele>', '</trkpt>', '</trkseg>', '</trk>', '</gpx>'].join(), function(err, result) {
-
+			assert.equal(err, null);
+			
 			var point1 = result[0];
 			var point2 = result[1];
 			var preci = 0.0000000000001;
@@ -114,6 +115,7 @@ vows.describe('Test suite for parsing gpx').addBatch({
 			gpx.gpxParseFile('./tests/data/data.gpx', this.callback);
 		},
 		'Should return an array of two tracking points' : function(err, result) {
+			assert.equal(err, null);
 
 			var point1 = result[0];
 			var point2 = result[1];
@@ -149,8 +151,8 @@ vows.describe('Test suite for parsing gpx').addBatch({
 		},
 		'Should return an array of two tracking points' : function(err, result) {
 
-			assert.equal(result.length, 2);
-			
+			assert.equal(err, null);
+
 			var point1 = result[0];
 			var point2 = result[1];
 			var preci = 0.0000000000001;

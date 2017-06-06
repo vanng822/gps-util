@@ -72,6 +72,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseFile('./tests/data/data.tcx', this.callback);
 		},
 		'Should return an array of three tracking points' : function(err, result) {
+			assert.equal(err, null);
 			assert.deepEqual(result, [{
 				distance : 0,
 				lat : null,
@@ -102,6 +103,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseFile('./tests/data/data_missing_ext.tcx', this.callback);
 		},
 		'Should return an array of three tracking points' : function(err, result) {
+			assert.equal(err, null);
 			assert.deepEqual(result, [{
 				distance : 0,
 				lat : null,
@@ -140,6 +142,7 @@ vows.describe('Test suite for parsing tcx').addBatch({
 			tcx.tcxParseURL(HOST + '/data.tcx', this.callback);
 		},
 		'Should return an array of two tracking points' : function(err, result) {
+			assert.equal(err, null);
 			assert.deepEqual(result, [{
 				distance : 0,
 				lat : null,
